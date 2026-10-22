@@ -9,7 +9,7 @@ import warnings
 import numpy as np
 import pandas as pd
 from langchain.chat_models.base import BaseChatModel
-from langchain.schema import AIMessage, BaseMessage, HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage
 
 from .deconstruct import deconstruct
 

@@ -3,8 +3,8 @@ import re
 from typing import Any, Callable, Dict, List, Optional
 
 import orjson
-from langchain.prompts import FewShotPromptTemplate, PromptTemplate
-from langchain.prompts.example_selector import LengthBasedExampleSelector
+from langchain_core.example_selectors import LengthBasedExampleSelector
+from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
 
 from .constants import *
 from .constants import TOKEN_COMPLETION_LIMIT, TOKEN_LIMIT

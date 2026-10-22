@@ -4,8 +4,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
-from langchain.embeddings import OpenAIEmbeddings
-from langchain_openai import OpenAI
+from langchain_openai import OpenAI, OpenAIEmbeddings
 
 from .constants import *
 

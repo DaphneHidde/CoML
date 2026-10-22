@@ -4,8 +4,8 @@ import re
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
 import orjson
-from langchain import FewShotPromptTemplate, PromptTemplate
-from langchain.prompts.example_selector import LengthBasedExampleSelector
+from langchain_core.example_selectors import LengthBasedExampleSelector
+from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
 from peewee import fn
 
 from .constants import *

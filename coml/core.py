@@ -9,7 +9,7 @@ from typing import Any, Callable, Literal, TypeVar, cast
 import colorama
 from langchain.chat_models.base import BaseChatModel
 from langchain.embeddings.base import Embeddings
-from langchain.schema import AIMessage, BaseMessage, HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage
 from scipy.spatial.distance import cosine as cosine_distance
 
 from .prompt_utils import (

@@ -7,8 +7,8 @@ import langchain
 import numpy as np
 import orjson
 import pandas as pd
-from langchain.cache import InMemoryCache
-from langchain.globals import set_llm_cache
+from langchain_core.caches import InMemoryCache
+from langchain_core.globals import set_llm_cache
 from peewee import ModelSelect, fn
 
 from .constants import *
