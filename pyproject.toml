@@ -2,18 +2,14 @@
 #requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version"]
 #build-backend = "hatchling.build"
 
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "mlcopilot"
 version = "0.0.8"
 dependencies = [
   "click",
   "colorama",
-  "langchain",
-  "langchain-openai",
+  "langchain~=1.4.7",
+  "langchain-openai~=1.7.2",
   "numpy",
   "orjson",
   "pandas",
@@ -151,3 +147,10 @@ dev = [
   "black",
   "isort",
 ]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["coml*"]
