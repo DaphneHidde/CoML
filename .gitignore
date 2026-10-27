@@ -33,7 +33,7 @@ MANIFEST
 *.spec
 
 # Version file is handled by hatchling
-#coml/_version.py
+coml/_version.py
 
 # Installer logs
 pip-log.txt

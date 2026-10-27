@@ -1,6 +1,6 @@
-#[build-system]
-#requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version"]
-#build-backend = "hatchling.build"
+[build-system]
+requires = ["hatchling>=1.5.0"]
+build-backend = "hatchling.build"
 
 [project]
 name = "mlcopilot"
@@ -56,55 +56,13 @@ Source = "https://github.com/microsoft/coml"
 [project.scripts]
 coml-configagent = "coml.configagent.cli:main"
 
-#[tool.hatch.version]
-#source = "nodejs"
-#
-#[tool.hatch.build]
-#include = [
-#  "/coml"
-#]
-#
-#[tool.hatch.metadata.hooks.nodejs]
-#fields = ["description"]
-#
-#[tool.hatch.build.targets.sdist]
-#artifacts = ["coml/labextension"]
-#exclude = [".github", "binder"]
-#
-#[tool.hatch.build.targets.wheel.shared-data]
-#"coml/labextension" = "share/jupyter/labextensions/coml"
-#"install.json" = "share/jupyter/labextensions/coml/install.json"
-#
-#[tool.hatch.build.hooks.version]
-#path = "coml/_version.py"
-#
-#[tool.hatch.build.hooks.jupyter-builder]
-#dependencies = ["hatch-jupyter-builder>=0.5"]
-#build-function = "hatch_jupyter_builder.npm_builder"
-#ensured-targets = [
-#    "coml/labextension/package.json",
-#]
-#
-#[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
-#build_cmd = "build:prod"
-#npm = ["jlpm"]
-#
-#[tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
-#build_cmd = "install:extension"
-#npm = ["jlpm"]
-#source_dir = "src"
-#build_dir = "coml/labextension"
+[tool.hatch.build]
+include = [
+  "/coml"
+]
 
-#[tool.jupyter-releaser.options]
-#version_cmd = "hatch version"
-#
-#[tool.jupyter-releaser.hooks]
-#before-build-npm = [
-#    "python -m pip install 'jupyterlab>=4.0.0,<5'",
-#    "jlpm",
-#    "jlpm build:prod"
-#]
-#before-build-python = ["jlpm clean:all"]
+[tool.hatch.build.hooks.version]
+path = "coml/_version.py"
 
 [tool.black]
 line-length = 88
@@ -148,9 +106,15 @@ dev = [
   "isort",
 ]
 
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools.packages.find]
-include = ["coml*"]
+#[build-system]
+#requires = ["setuptools", "wheel"]
+#build-backend = "setuptools.build_meta"
+#
+#[tool.setuptools]
+#include-package-data = true
+#
+#[tool.setuptools.package-data]
+#"" = ["my_directory/*"]
+#
+#[tool.setuptools.packages.find]
+#include = ["coml*"]
